@@ -1,8 +1,20 @@
-function [row_disparity, flow] = graph_cut_by_line(matching_err, contrast_left, contrast_right, iter)
+function [row_disparity, flow] = graph_cut_by_line(matching_err, contrast_left, contrast_right)
 
+% build a graph using two corresponding lines of pixels and find disparity 
+% map by using graph cut method.
+%     input: 
+%             matching_err:  result of comparing two blocks of images by 
+%                            scattered networks
+%             contrast_left: lookup table of contrast between adjacent
+%                            pixels of left image 
+%             contrast_right:lookup table of contrast between adjacent
+%                            pixels of right image 
+%     output:
+%             row_disparity: disparity map of one row
+%             flow:          maxflow of the generated graph
+            
     nPixel = size(matching_err, 1); % nPixel is the width of matching_err matrix
     graph_size = nPixel ^ 2 * 2; % nPixel ^ 2 of u and nPixel ^ 2 of v nodes.
-    disp(['Building graph: ', num2str(iter)]);
     
 %% Edges inside graph
     A = sparse(graph_size, graph_size);

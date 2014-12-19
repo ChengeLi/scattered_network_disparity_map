@@ -40,7 +40,8 @@ for k=1:60  % row by row
 % matching_error_normalized=normalize_matching_error(matching_error_black{23,1}); % % normalize the error
 matching_error=matching_error_black{k,1};
 matching_error_normalized=matching_error;
-[disparity(k,:),flow(k)]=graph_cut_by_line(matching_error_normalized,contrast_left(k,:),contrast_right(k,:),k);
+disp(['Building graph: ', num2str(k)]);
+[disparity(k,:),flow(k)]=graph_cut_by_line(matching_error_normalized,contrast_left(k,:),contrast_right(k,:));
 
 end
 
