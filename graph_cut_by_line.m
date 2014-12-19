@@ -28,8 +28,8 @@ function [row_disparity, flow] = graph_cut_by_line(matching_err, contrast_left, 
     end
     % Smooth term (little gray edges in figure)
     % mu = 1e-4;
-    mu_left = little_gray_left(matching_err, contrast_left);
-    mu_right = little_gray_right(matching_err, contrast_right);
+    mu_left = get_penalty_val(matching_err, contrast_left);
+    mu_right = get_penalty_val(matching_err, contrast_right);
     % from Us to Vs
     for i = 1 : nPixel - 1
         for j = 1 : nPixel
