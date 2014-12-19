@@ -1,8 +1,15 @@
-% function disparity_map=stereo_from_scatter_network(img_left,img_right)
+function disparity_map=stereo_from_scatter_network(img_left_path,img_right_path)
 
 clear 
 clc
 close all
+%% read image
+colorimg_left=imread(img_left_path);
+colorimg_right=imread(img_right_path);
+img_left=double(rgb2gray(colorimg_left));  %0~255
+img_right=double(rgb2gray(colorimg_right));
+
+
 %% scatter network
 % load scatter_vectors_full.mat; % 1*19 cell (1920*2820)
 isdownsample=0;
