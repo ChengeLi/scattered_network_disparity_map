@@ -14,7 +14,7 @@ function result=scatterNetwork(theta,sigma,I,isdownsample)
 
 %% 1st layer
 % convoluve with real and imag part of Wavelet
-magnitude=hw1_morletwavelet(theta,sigma,I);
+magnitude=morletwavelet(theta,sigma,I);
 blurred_magni=GaussianBlur(6,magnitude);
 
 % % downsample

@@ -1,4 +1,4 @@
-function final_vector=loop(I,isdownsample)
+function scattered_features=loop(I,isdownsample)
 % % generate 19 vectors from the scatter network  (zero layer and first layer)
 
 if size(I,3)==3
@@ -49,10 +49,10 @@ result{7}= scatterNetwork(0,3,I,isdownsample);
  result{17}=scatterNetwork(2*pi/3,6,I,isdownsample);
  result{18}=scatterNetwork(5*pi/6,6,I,isdownsample);
  
- final_vector=cell(1,19);
- final_vector{1,1}=zerolyer_I;
+ scattered_features = cell(1,19);
+ scattered_features{1,1} = zerolyer_I;
  for i=2:19
-     final_vector{1,i}=result{1,i-1};
+     scattered_features{1,i}=result{1,i-1};
  end
  
  

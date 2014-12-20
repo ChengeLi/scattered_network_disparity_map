@@ -110,6 +110,6 @@ function [row_disparity, flow] = graph_cut_by_line(matching_err, contrast_left, 
 %% Do MaxFlow MinCut Calculation using Boykov's alg
 
     [flow, labels] = maxflow(A, T);
-    row_disparity = path2disparity(labels);
+    row_disparity = path2disparity(labels, nPixel);
     
 end
