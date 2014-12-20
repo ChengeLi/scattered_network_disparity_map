@@ -6,13 +6,13 @@ function  disparity = path2disparity(labels, nPixel)
         for j = 1 : nPixel
             idx_u = uv2node('u', i, j, nPixel, nPixel);
             idx_v = uv2node('v', i, j, nPixel, nPixel);
-            if labels(idx_u)~=labels(idx_v)
+            if labels(idx_u) ~= labels(idx_v)
                 cuthere(i, j) = 1;
                 disparity(i) = i - j;
             end
         end
         if sum(cuthere(i,:)) == 0
-            disparity(i) = 23444; % this means occlusion!!
+            disparity(i) = inf; % this means occlusion!!
         elseif sum(cuthere(i, :)) > 1
             print error!
         end
