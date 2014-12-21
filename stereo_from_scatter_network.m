@@ -10,7 +10,7 @@ img_right = double(rgb2gray(img_right));
 
 %% scatter network
 % load scatter_vectors_full.mat; % 1*19 cell (1920*2820)
-kSample = 3;
+kSample = 4;
 nLayer = 2;
 left_feature_vector = get_scattered_features_vectors(img_left, 0, nLayer);
 right_feature_vector = get_scattered_features_vectors(img_right, 0, nLayer);
@@ -18,6 +18,7 @@ right_feature_vector = get_scattered_features_vectors(img_right, 0, nLayer);
 %left_feature_vector = loop(img_left,isdownsample);
 %right_feature_vector = loop(img_right,isdownsample);
 % get scattered network errors
+%}
 matching_error_black = get_matching_cost(img_left, left_feature_vector, right_feature_vector, kSample);
 
 %% down-sampling and get contrast values
@@ -51,7 +52,3 @@ figure;
 imagesc(disparity_show); 
 
 %}
-
-
-
-

@@ -2,6 +2,7 @@
 function sca_error_cost = get_scatter_network_temp_error(left_vector_full, right_vector_full, ...
                                               center_left, center_right, img_left, kSample)
 
+                         
                                           
     template_size = 2 ^ kSample;
     [height, width] = size(img_left); 
